@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarpetSMP2 Minecraft Server</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://example.com/background.jpg'); /* Replace with your background image URL */
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+        }
+        .header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 3em;
+            color: #00FF00;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+        }
+        .about-server {
+            text-align: center;
+        }
+        .about-server h2 {
+            font-size: 2.5em;
+            color: #FFD700;
+        }
+        .about-server p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #00FF00;
+            color: black;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #FFD700;
+        }
+
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .dropdown button {
+            background-color: #00FF00;
+            color: black;
+            padding: 10px 15px;
+            border: none;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.7);
+            min-width: 200px;
+            right: 0;
+            z-index: 1;
+            border-radius: 10px;
+        }
+        .dropdown-content div {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content div:hover {
+            background-color: #333;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Status Section */
+        .status-box {
+            text-align: center;
+        }
+        .status-box h3 {
+            color: #00FF00;
+        }
+        .status-box .progress-bar {
+            background-color: #333;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .status-box .progress {
+            height: 20px;
+            background-color: #FFD700;
+            width: 80%; /* Example: 80% uptime */
+        }
+
+        /* Discord Section */
+        .discord-box {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .discord-box img {
+            width: 100px;
+        }
+        .discord-box .discord-button {
+            display: inline-block;
+            background-color: #7289DA;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            text-align: center;
+            color: #FFFFFF;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Welcome to CarpetSMP2</h1>
+        <p>The Ultimate Earth & Lifesteal Minecraft Server</p>
+    </div>
+
+    <!-- Dropdown Menu Button -->
+    <div class="dropdown">
+        <button>Menu</button>
+        <div class="dropdown-content">
+            <div id="server-status">CarpetSMP2 Status</div>
+            <div id="discord-join">Join Discord Now</div>
+        </div>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <div class="about-server">
+            <h2>About Our Server</h2>
+            <p>CarpetSMP2 is a Minecraft Earth server with a twist! Explore a custom Earth map and experience the unique **Lifesteal** gameplay. Every heart matters—kill your enemies and steal their health, or risk losing yours in battle!</p>
+            <p>Join a thriving community of players as you explore real-world locations, build empires, and fight for survival in this exciting, fast-paced SMP experience.</p>
+            <a href="minecraft://connect:play.carpetsmp2.com" class="button">Join Now</a>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>© 2024 CarpetSMP2 - All Rights Reserved</p>
+    </div>
+
+    <!-- Status Section (Hidden Initially) -->
+    <div class="container status-box" id="status-section" style="display: none;">
+        <h3>Server Status</h3>
+        <p><strong>Players Online:</strong> 52 / 100</p>
+        <p><strong>Uptime:</strong> 80%</p>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <p><strong>Live Chat:</strong> Enabled</p>
+    </div>
+
+    <!-- Discord Section (Hidden Initially) -->
+    <div class="container discord-box" id="discord-section" style="display: none;">
+        <img src="https://example.com/discord-logo.png" alt="Discord Logo"> <!-- Replace with your Discord logo URL -->
+        <br>
+        <a href="https://discord.gg/your-server-invite" class="discord-button">Join Discord Now</a>
+    </div>
+
+    <script>
+        // Toggle sections when dropdown options are clicked
+        document.getElementById('server-status').addEventListener('click', function() {
+            document.getElementById('status-section').style.display = 'block';
+            document.getElementById('discord-section').style.display = 'none';
+        });
+
+        document.getElementById('discord-join').addEventListener('click', function() {
+            document.getElementById('discord-section').style.display = 'block';
+            document.getElementById('status-section').style.display = 'none';
+        });
+    </script>
+
+</body>
+</html>
