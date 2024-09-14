@@ -3,204 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CarpetSMP2 Minecraft Server</title>
+    <title>CarpetSMP2 - Minecraft Earth & Lifesteal Server</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-image: url('https://example.com/background.jpg'); /* Replace with your background image URL */
+            background-image: url('background.png');
             background-size: cover;
-            background-attachment: fixed;
-            color: white;
+            background-position: center;
+            color: #fff;
         }
-        .header {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
+        header {
+            background-color: rgba(51, 51, 51, 0.8);
+            color: #fff;
+            padding: 1rem;
             text-align: center;
-        }
-        .header h1 {
-            font-size: 3em;
-            color: #00FF00;
+            border-bottom: 2px solid #007bff;
         }
         .container {
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.6);
-            border-radius: 10px;
+            margin: auto;
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
         }
-        .about-server {
-            text-align: center;
-        }
-        .about-server h2 {
-            font-size: 2.5em;
-            color: #FFD700;
-        }
-        .about-server p {
-            font-size: 1.2em;
-            line-height: 1.6;
-            margin-bottom: 30px;
+        .status, .faq {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            color: #333;
         }
         .button {
             display: inline-block;
-            background-color: #00FF00;
-            color: black;
-            padding: 10px 20px;
+            padding: 0.5rem 1rem;
+            margin-top: 1rem;
+            background-color: #007bff;
+            color: #fff;
             text-decoration: none;
-            font-size: 1.2em;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+            border-radius: 4px;
         }
         .button:hover {
-            background-color: #FFD700;
+            background-color: #0056b3;
         }
-
-        /* Dropdown Menu Styles */
-        .dropdown {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+        .faq ul {
+            list-style-type: none;
+            padding: 0;
         }
-        .dropdown button {
-            background-color: #00FF00;
-            color: black;
-            padding: 10px 15px;
-            border: none;
-            font-size: 1.1em;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: rgba(0, 0, 0, 0.7);
-            min-width: 200px;
-            right: 0;
-            z-index: 1;
-            border-radius: 10px;
-        }
-        .dropdown-content div {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-        .dropdown-content div:hover {
-            background-color: #333;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        /* Status Section */
-        .status-box {
-            text-align: center;
-        }
-        .status-box h3 {
-            color: #00FF00;
-        }
-        .status-box .progress-bar {
-            background-color: #333;
-            border-radius: 5px;
-            overflow: hidden;
-            margin: 10px 0;
-        }
-        .status-box .progress {
-            height: 20px;
-            background-color: #FFD700;
-            width: 80%; /* Example: 80% uptime */
-        }
-
-        /* Discord Section */
-        .discord-box {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .discord-box img {
-            width: 100px;
-        }
-        .discord-box .discord-button {
-            display: inline-block;
-            background-color: #7289DA;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-size: 1.2em;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-        .footer {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px;
-            text-align: center;
-            color: #FFFFFF;
-            margin-top: 20px;
+        .faq ul li {
+            margin-bottom: 0.5rem;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
-    <div class="header">
-        <h1>Welcome to CarpetSMP2</h1>
-        <p>The Ultimate Earth & Lifesteal Minecraft Server</p>
+<header>
+    <h1>Welcome to CarpetSMP2</h1>
+    <p>Your Ultimate Minecraft Earth & Lifesteal Server</p>
+</header>
+
+<div class="container">
+
+    <!-- Server Status Section -->
+    <div class="status">
+        <h2>Server Status</h2>
+        <p>Status: <span id="server-status">Loading...</span></p>
+        <p>Players Online: <span id="player-count">Loading...</span></p>
     </div>
 
-    <!-- Dropdown Menu Button -->
-    <div class="dropdown">
-        <button>Menu</button>
-        <div class="dropdown-content">
-            <div id="server-status">CarpetSMP2 Status</div>
-            <div id="discord-join">Join Discord Now</div>
-        </div>
+    <!-- Live Chat Section -->
+    <div class="status">
+        <h2>Live Chat</h2>
+        <p>Chat integration coming soon!</p>
     </div>
 
-    <!-- Main Content Section -->
-    <div class="container">
-        <div class="about-server">
-            <h2>About Our Server</h2>
-            <p>CarpetSMP2 is a Minecraft Earth server with a twist! Explore a custom Earth map and experience the unique **Lifesteal** gameplay. Every heart matters—kill your enemies and steal their health, or risk losing yours in battle!</p>
-            <p>Join a thriving community of players as you explore real-world locations, build empires, and fight for survival in this exciting, fast-paced SMP experience.</p>
-            <a href="minecraft://connect:play.carpetsmp2.com" class="button">Join Now</a>
-        </div>
+    <!-- Discord Join Button -->
+    <a href="https://discord.gg/your-discord-link" class="button" target="_blank">Join Our Discord</a>
+
+    <!-- FAQ Section -->
+    <div class="faq">
+        <h2>FAQ</h2>
+        <ul>
+            <li><strong>What is CarpetSMP2?</strong> <br> CarpetSMP2 is a Minecraft Earth server combined with a Lifesteal server, offering a unique gameplay experience on a real-world map.</li>
+            <li><strong>How do I join the server?</strong> <br> Use the server IP: <code>yourserverip</code> to connect to CarpetSMP2 in Minecraft.</li>
+            <li><strong>What are the server rules?</strong> <br> Rules include respecting other players, not using cheats, and following the server guidelines. For a full list, visit our server rules page.</li>
+            <li><strong>How can I report issues or get help?</strong> <br> You can contact our support team through the Discord server or via the in-game help commands.</li>
+            <li><strong>What is Lifesteal mode?</strong> <br> Lifesteal mode is a gameplay mechanic where players can gain health by defeating others, adding a unique challenge to the server.</li>
+        </ul>
     </div>
 
-    <!-- Footer Section -->
-    <div class="footer">
-        <p>© 2024 CarpetSMP2 - All Rights Reserved</p>
-    </div>
+</div>
 
-    <!-- Status Section (Hidden Initially) -->
-    <div class="container status-box" id="status-section" style="display: none;">
-        <h3>Server Status</h3>
-        <p><strong>Players Online:</strong> 52 / 100</p>
-        <p><strong>Uptime:</strong> 80%</p>
-        <div class="progress-bar">
-            <div class="progress"></div>
-        </div>
-        <p><strong>Live Chat:</strong> Enabled</p>
-    </div>
+<script>
+    // Example script to fetch server status and player count
+    async function updateServerStatus() {
+        try {
+            // Fetch server status from an API (example URL, replace with actual API)
+            const response = await fetch('https://api.example.com/server-status');
+            const data = await response.json();
 
-    <!-- Discord Section (Hidden Initially) -->
-    <div class="container discord-box" id="discord-section" style="display: none;">
-        <img src="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.vecteezy.com/vector-art/6892625-discord-logo-icon-editorial-vector&ved=2ahUKEwjM2oXLoMKIAxVzFRAIHU1PN8UQr4kDegQIGRAA&usg=AOvVaw0Mljh_mexlMIbN9e-5gLox" alt="Discord Logo"> <!-- Replace with your Discord logo URL -->
-        <br>
-        <a href="https://discord.gg/j9KCQchGXg" class="discord-button">Join Discord Now</a>
-    </div>
+            // Update status and player count
+            document.getElementById('server-status').textContent = data.status;
+            document.getElementById('player-count').textContent = data.players;
+        } catch (error) {
+            console.error('Error fetching server status:', error);
+        }
+    }
 
-    <script>
-        // Toggle sections when dropdown options are clicked
-        document.getElementById('server-status').addEventListener('click', function() {
-            document.getElementById('status-section').style.display = 'block';
-            document.getElementById('discord-section').style.display = 'none';
-        });
-
-        document.getElementById('discord-join').addEventListener('click', function() {
-            document.getElementById('discord-section').style.display = 'block';
-            document.getElementById('status-section').style.display = 'none';
-        });
-    </script>
+    updateServerStatus();
+</script>
 
 </body>
 </html>
